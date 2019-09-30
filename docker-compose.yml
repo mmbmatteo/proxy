@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  proxy:
+    build: .
+    command: yarn run start:dev
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8080:3000"
+      - "8081:3001"
