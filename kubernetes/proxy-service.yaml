@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-proxy
+spec:
+  type: NodePort
+  selector:
+    run: my-proxy
+  ports:
+  - name: proxy 
+    protocol: TCP
+    port: 5000
+    nodePort: 30000
+    targetPort: 3000
+  - name: frontend 
+    protocol: TCP
+    port: 5001
+    nodePort: 30001
+    targetPort: 3001

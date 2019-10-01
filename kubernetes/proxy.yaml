@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-proxy
+spec:
+  selector:
+    matchLabels:
+      run: my-proxy
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: my-proxy
+    spec:
+      containers:
+      - name: my-proxy
+        image: proxy
+        imagePullPolicy: Never
+        ports:
+        ports:
+          - containerPort: 3000
+            name: proxy
+          - containerPort: 3001
+            name: frontend
